@@ -9,6 +9,10 @@
 #import "CLQArticleViewController.h"
 
 @interface CLQArticleViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UIWebView *testkeynote;
+
 
 @end
 
@@ -27,6 +31,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [_scrollview setScrollEnabled:YES];
+    UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"article"]];
+
+
+    self.scrollview.contentSize = view.image.size;
+    [self.scrollview addSubview:view];
+   
+    
+    [_doneButton setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    
 }
 
 - (void)didReceiveMemoryWarning

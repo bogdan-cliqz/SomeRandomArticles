@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A140B5A19AF223300B07BB4 /* article@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A140B5919AF223300B07BB4 /* article@2x.png */; };
+		5A24117C19AF39300060D7CF /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A24117B19AF39300060D7CF /* back@2x.png */; };
+		5AD2EB7419AF2B0900CFFF3B /* Animation.key in Resources */ = {isa = PBXBuildFile; fileRef = 5AD2EB7319AF2B0900CFFF3B /* Animation.key */; };
 		F85AC38319AF10BF002788CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85AC38219AF10BF002788CA /* Foundation.framework */; };
 		F85AC38519AF10BF002788CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85AC38419AF10BF002788CA /* CoreGraphics.framework */; };
 		F85AC38719AF10BF002788CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85AC38619AF10BF002788CA /* UIKit.framework */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A140B5919AF223300B07BB4 /* article@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "article@2x.png"; sourceTree = "<group>"; };
+		5A24117B19AF39300060D7CF /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		5AD2EB7319AF2B0900CFFF3B /* Animation.key */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Animation.key; sourceTree = "<group>"; };
 		F85AC37F19AF10BF002788CA /* SomeRandomArticles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomeRandomArticles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F85AC38219AF10BF002788CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F85AC38419AF10BF002788CA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,6 +127,9 @@
 		F85AC38819AF10BF002788CA /* SomeRandomArticles */ = {
 			isa = PBXGroup;
 			children = (
+				5A24117B19AF39300060D7CF /* back@2x.png */,
+				5AD2EB7319AF2B0900CFFF3B /* Animation.key */,
+				5A140B5919AF223300B07BB4 /* article@2x.png */,
 				F85AC39119AF10BF002788CA /* CLQAppDelegate.h */,
 				F85AC39219AF10BF002788CA /* CLQAppDelegate.m */,
 				F85AC39419AF10BF002788CA /* Main.storyboard */,
@@ -214,6 +223,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Cliqz;
 				TargetAttributes = {
+					F85AC37E19AF10BF002788CA = {
+						DevelopmentTeam = 2UYYSSHVUH;
+					};
 					F85AC39F19AF10BF002788CA = {
 						TestTargetID = F85AC37E19AF10BF002788CA;
 					};
@@ -246,9 +258,12 @@
 				F85AC39B19AF10BF002788CA /* Images.xcassets in Resources */,
 				F8F346B319AF17C200E2DCFA /* bg+1.png in Resources */,
 				F8F346B419AF17C200E2DCFA /* bg-1.png in Resources */,
+				5A140B5A19AF223300B07BB4 /* article@2x.png in Resources */,
 				F85AC38D19AF10BF002788CA /* InfoPlist.strings in Resources */,
+				5A24117C19AF39300060D7CF /* back@2x.png in Resources */,
 				F85AC3BA19AF1215002788CA /* bg.png in Resources */,
 				F85AC39619AF10BF002788CA /* Main.storyboard in Resources */,
+				5AD2EB7419AF2B0900CFFF3B /* Animation.key in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,10 +410,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SomeRandomArticles/SomeRandomArticles-Prefix.pch";
 				INFOPLIST_FILE = "SomeRandomArticles/SomeRandomArticles-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -408,10 +426,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SomeRandomArticles/SomeRandomArticles-Prefix.pch";
 				INFOPLIST_FILE = "SomeRandomArticles/SomeRandomArticles-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
