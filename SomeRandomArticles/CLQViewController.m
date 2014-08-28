@@ -19,6 +19,7 @@
     CGRect frames[8];
     int colorIndex;
     NSArray *colors;
+    NSArray *images;
 }
 
 - (void)viewDidLoad
@@ -34,6 +35,19 @@
     frames[6] = CGRectMake(80, 360, 40, 40);
     frames[7] = CGRectMake(120,400, 0, 0);
     
+    images = @[
+        [UIImage imageNamed:@"1_tile.jpg"],
+        [UIImage imageNamed:@"2_tile.jpg"],
+        [UIImage imageNamed:@"3_tile.jpg"],
+        [UIImage imageNamed:@"4_tile.jpg"],
+        [UIImage imageNamed:@"5_tile.jpg"],
+        [UIImage imageNamed:@"6_tile.jpg"],
+        [UIImage imageNamed:@"7_tile.jpg"],
+        [UIImage imageNamed:@"8_tile.jpg"],
+        [UIImage imageNamed:@"9_tile.jpg"],
+        [UIImage imageNamed:@"10_tile.jpg"]
+    ];
+    
     colors = @[
         [UIColor redColor],
         [UIColor purpleColor],
@@ -48,7 +62,8 @@
     ];
     
     for (colorIndex = 0; colorIndex < 6; colorIndex++) {
-        UIView *v=[[UIView alloc]initWithFrame:frames[colorIndex + 1]];
+        UIImageView *v = [[UIImageView alloc]initWithFrame:frames[colorIndex + 1]];
+        v.image = images[colorIndex];
         v.backgroundColor = [colors objectAtIndex:colorIndex];
         [_fibonacciContainer addSubview:v];
     }
@@ -69,9 +84,7 @@
 
 - (void)rotate:(NSInteger)index
 {
-
-    
-    UIView *view = [[UIView alloc] init];
+    UIImageView *view = [[UIImageView alloc] init];
     colorIndex -= index;
     if (colorIndex > ((int)colors.count) - 1)
         colorIndex = 0;
@@ -84,9 +97,12 @@
         newColor -= 5;
         if (newColor < 0)
             newColor += colors.count;
-        NSLog(@"Color index: %d color: %d", colorIndex, newColor);
+//        NSLog(@"Color index: %d color: %d", colorIndex, newColor);
     }
-    view.backgroundColor = [colors objectAtIndex:newColor];
+    
+    view.backgroundColor = colors[newColor];
+    view.image = images[newColor];
+    
     if (index == 1) {
         view.frame = frames[0];
         [self.fibonacciContainer insertSubview:view atIndex:0];
@@ -100,14 +116,12 @@
     NSArray *views = self.fibonacciContainer.subviews;
     
     NSAssert(7 == views.count, @"7 Views expected");
+    
     int delta = (index > 0) ? 0 : 1;
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:.5 animations:^{
         for (int i = 0; i < views.count; i++) {
             UIView *srcView = [views objectAtIndex:i];
             srcView.frame = frames[delta+i+index];
-            
-            //view.frame = frames[1i + index];
-            //view.backgroundColor = colors[colorIndex + index];
         }
     } completion:^(BOOL finished) {
         if (index > 0) {
