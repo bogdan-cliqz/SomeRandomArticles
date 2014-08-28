@@ -118,6 +118,9 @@
     NSAssert(7 == views.count, @"7 Views expected");
     
     int delta = (index > 0) ? 0 : 1;
+    
+    self.fibonacciContainer.userInteractionEnabled = NO;
+    
     [UIView animateWithDuration:.5 animations:^{
         for (int i = 0; i < views.count; i++) {
             UIView *srcView = [views objectAtIndex:i];
@@ -129,6 +132,8 @@
         } else {
             [[views firstObject] removeFromSuperview];
         }
+        
+        self.fibonacciContainer.userInteractionEnabled = YES;
     }];
     
 }
