@@ -16,45 +16,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gyk-87-YtA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a3I-Iy-SD2" userLabel="Article 0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maO-Kg-Z9K" userLabel="Fibonacci Container View">
+                                <rect key="frame" x="0.0" y="48" width="320" height="520"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="520" id="LNQ-8P-hSx"/>
+                                    <constraint firstAttribute="width" constant="320" id="PPN-FZ-TAE"/>
+                                </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Rmz-7F-2Hv" appends="YES" id="l2R-PR-Lbx"/>
-                                    <outletCollection property="gestureRecognizers" destination="Mwv-0o-kM0" appends="YES" id="gs3-g2-QnD"/>
-                                    <outletCollection property="gestureRecognizers" destination="yDu-rk-XtP" appends="YES" id="dMS-Wf-QJ8"/>
+                                    <outletCollection property="gestureRecognizers" destination="SB5-y6-ohS" appends="YES" id="gBq-ye-rDx"/>
+                                    <outletCollection property="gestureRecognizers" destination="RKt-Mg-eqA" appends="YES" id="l49-sg-Yrc"/>
+                                    <outletCollection property="gestureRecognizers" destination="3yK-C6-0Zr" appends="YES" id="LaE-kw-7vX"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="maO-Kg-Z9K" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="dPr-yd-kFh"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="maO-Kg-Z9K" secondAttribute="bottom" id="rmm-U3-zVI"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="backgroundImageView" destination="Gyk-87-YtA" id="ooM-Xq-NW0"/>
+                        <outlet property="fibonacciContainer" destination="maO-Kg-Z9K" id="e3f-jo-WlD"/>
                         <segue destination="PnT-WL-dmM" kind="modal" identifier="ArticleDetails" modalTransitionStyle="crossDissolve" id="WSQ-BA-Ad0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Rmz-7F-2Hv">
+                <swipeGestureRecognizer direction="left" id="SB5-y6-ohS" userLabel="Left Swipe Gesture Recognizer">
                     <connections>
-                        <action selector="articleDetails:" destination="vXZ-lx-hvc" id="8d7-XS-UM5"/>
+                        <action selector="leftSwipe:" destination="vXZ-lx-hvc" id="rpT-Nz-MhQ"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="RKt-Mg-eqA" userLabel="Right Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="rightSwipe:" destination="vXZ-lx-hvc" id="fXO-oq-DXw"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <tapGestureRecognizer id="3yK-C6-0Zr">
+                    <connections>
+                        <action selector="articleDetails:" destination="vXZ-lx-hvc" id="3hu-2S-tze"/>
                     </connections>
                 </tapGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="Mwv-0o-kM0" userLabel="Right Swipe Gesture Recognizer">
-                    <connections>
-                        <action selector="handleRightSwipe:" destination="vXZ-lx-hvc" id="ODP-ce-9Vv"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="yDu-rk-XtP" userLabel="Left Swipe Gesture Recognizer">
-                    <connections>
-                        <action selector="handleLeftSwipe:" destination="vXZ-lx-hvc" id="Csh-80-6g2"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="118" y="111"/>
         </scene>
@@ -97,9 +101,6 @@
             <point key="canvasLocation" x="574" y="111"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bg.png" width="512" height="828"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
